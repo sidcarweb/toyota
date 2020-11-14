@@ -1,0 +1,83 @@
+@charset "utf-8";
+/* CSS Document */
+body {
+		background-image: url("https://images.pexels.com/photos/3369526/pexels-photo-3369526.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260");
+		background-color: white;
+		color: #000;
+		font-family:"Times New Roman", Times, serif;
+		font-size:large;
+		
+	}
+h1 {
+	color:#8C001C;}
+h2,p {
+	color:#603}
+table {
+	width:
+	border-collapse:collapse;
+	table-layout:fixed;
+	padding-left:30%
+		
+	}
+td {
+	vertical-align:top;
+	padding:5px;
+	word-wrap:break-word;
+	
+	}
+#fullpage {
+	margin:100px;
+	margin-top:0;
+	font-family:"Times New Roman", Times, serif;
+	border:solid;
+	border-color:#009;
+	text-align:center
+	}
+#intro {
+	text-align:center}
+#form content {
+	
+	
+	}
+.label_col {
+	text-align:right;
+	}
+.input_col {
+	text-align:left;
+	}
+.feedback_col {
+	text-align:left;
+	vertical-align:middle;
+	color:gray;
+	font:small;
+}
+.button {
+	color:black;
+	text-align:center;
+	margin:auto;
+	border-radius: 12px;
+	background-color:gray;
+	cursor: pointer;
+	}
+.buttonBG {
+	color:black;
+	text-align:center;
+	margin:auto;
+	border-radius: 12px;
+	background-color: lightgray;
+	cursor: pointer;
+	}
+.newthings {
+	color:black;
+	margin:auto;
+	}
+.clicks {
+	text-align:left;
+	padding-left:40%;
+	cursor: pointer;
+}
+.button12 {
+	text-align:center;
+	padding-left:2%;
+	cursor: pointer;
+	}

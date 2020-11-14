@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>HTML Form</title>
+<link rel="stylesheet" type="text/css" href="Form Validation.css">
+<script type="text/javascript"> 
+	function validateFirstName ()
+	{	
+	var fname = document.getElementById("firstName"). value;
+	var re1= /^[A-Za-z\$\*\-]{2,15}$/;
+	
+	if (re1.test(fname))
+		{
+			document.getElementById("firstNamePrompt").style.color = "green";
+			document.getElementById("firstNamePrompt").innerHTML = "Valid";
+			return true;
+		}
+	else
+		{
+			document.getElementById("firstNamePrompt").style.color = "red";
+			document.getElementById("firstNamePrompt").innerHTML = "Enter correct Name (2-15 digits)";
+			return false;
+		}	
+	}
+	function validateLastName ()
+	{	
+	var lname = document.getElementById("lastName"). value;
+	var re2= /^[A-Za-z\$\*\-]{2,25}$/;
+	
+	if (re2.test(lname))
+		{
+			document.getElementById("lastNamePrompt").style.color = "green";
+			document.getElementById("lastNamePrompt").innerHTML = "Valid";
+			return true;
+		}
+	else
+		{
+			document.getElementById("lastNamePrompt").style.color = "red";
+			document.getElementById("lastNamePrompt").innerHTML = "Enter correct Name (2-25 digits)";
+			return false;
+		}
+	}
+	function validatePhoneNumber ()
+	{	
+	var phoneNumber = document.getElementById("phone"). value;
+	var re3= /^\d{4}-\d{7}$/;
+	
+	if (re3.test(phoneNumber))
+		{
+			document.getElementById("phonePrompt").style.color = "green";
+			document.getElementById("phonePrompt").innerHTML = "Valid";
+			return (true);
+		}
+	else
+		{
+			document.getElementById("phonePrompt").style.color = "red";
+			document.getElementById("phonePrompt").innerHTML = "Use xxxx-xxxxxxx format";
+			return (false);
+		}
+	}	
+	
+	function validateCnicNumber ()
+	{	
+	var cnicNumber = document.getElementById("cnic"). value;
+	var re4= /^\d{5}-\d{7}-\d{1}$/;
+	
+	
+	if (re4.test(cnicNumber))
+		{
+			document.getElementById("cnicPrompt").style.color = "green";
+			document.getElementById("cnicPrompt").innerHTML = "Valid";
+			return (true);
+		}
+	else
+		{
+			document.getElementById("cnicPrompt").style.color = "red";
+			document.getElementById("cnicPrompt").innerHTML = "Use xxxxx-xxxxxxx-x format";
+			return (false);
+		}
+	}	
+	
+	function validateEmail ()
+	{	
+	var emailAdd = document.getElementById("email"). value;
+	var re5= /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+	
+	
+	if (re5.test(emailAdd))
+		{
+			document.getElementById("emailPrompt").style.color = "green";
+			document.getElementById("emailPrompt").innerHTML = "Valid";
+			return (true);
+		}
+	else
+		{
+			document.getElementById("emailPrompt").style.color = "red";
+			document.getElementById("emailPrompt").innerHTML = "Use correct Email format";
+			return (false);
+		}
+	}	
+	
+	
+	function calcOrder ()
+	{
+			var firstName = document.getElementById("firstName").value;
+			var lastName = document.getElementById("lastName").value;
+			var userName = firstName + " " + lastName;
+			var phoneNumber = document.getElementById("phone").value;
+			var cnicNumber = document.getElementById("cnic").value;
+			var email = document.getElementById("email").value;
+		/*	var price = document.getElementById("itemPrice").value;  */
+			
+			var ele = document.getElementsByName('Car'); 
+              
+            for(i = 0; i < ele.length; i++) { 
+                  
+                if(ele[i].type="radio") { 
+                  
+                    if(ele[i].checked) 
+                        document.getElementById("result").innerHTML 
+                                += ele[i].name + " Type: " 
+                                + ele[i].value + "<br>"; 
+                } 
+            } 
+			
+			var ele = document.getElementsByName('Engine'); 
+              
+            for(i = 0; i < ele.length; i++) { 
+                  
+                if(ele[i].type="radio") { 
+                  
+                    if(ele[i].checked) 
+                        document.getElementById("result").innerHTML 
+                                += ele[i].name + " Value: " 
+                                + ele[i].value + "<br>"; 
+                } 
+            } 
+			
+			
+			var ele = document.getElementsByName('Feature'); 
+              
+            for(i = 0; i < ele.length; i++) { 
+                  
+                if(ele[i].type="checkbox") { 
+                  
+                    if(ele[i].checked) 
+                        document.getElementById("result").innerHTML 
+                                += ele[i].name + " Added: " 
+                                + ele[i].value + "<br>"; 
+                } 
+            } 
+			
+			
+			var ele = document.getElementsByTagName('option'); 
+              
+            for(i = 0; i < ele.length; i++) { 
+                  
+				  if(ele[i].selected) 
+                        document.getElementById("result").innerHTML 
+                                 +="Reservation/Pickup Location: " 
+                                + ele[i].value + "<br>"; 
+                } 
+            
+			
+			document.getElementById("orderConfirm").innerHTML = "<h2>Order Summary:</h2>";
+			document.getElementById("orderConfirm").innerHTML += "<p>" + userName.toUpperCase() + "</Br>" + phoneNumber + "</Br>" + cnicNumber + "</Br>" + email + "</p>";
+		/*	document.getElementById("orderConfirm").innerHTML += "<p>Order Total: $" + price + "</p>"; */
+			
+			
+	}
+	
+	</script>
+</head>
+
+
+<body>
+	<form action="mySubmitPage.html" action="mySubmitPage.html">
+	<div id="fullpage">
+	<div id="intro">
+	<img src="assets/images/toyota.png" alt="Toyota logo" width="250" height="150">
+    <h1>Toyota Company</h1>
+	<h2>Hey! Welcome to Toyota car order form!</h2>
+	<p>In this form a customer can book his/her Toyato product. He/she can Purchase any Toyota product by submitting this form.</p>
+	<h3>Fill out your personal details</h3>
+	</div>
+	<div id="form content">
+    <table border="0">
+    	<tr>
+        	<td class="label_col">First Name:</td>
+            <td class="input_col"><input name="firstName" id="firstName" type="text" onblur="validateFirstName ();" placeholder="Muhammad" required /> </td>
+            <td class="feedback_col"><span id="firstNamePrompt">Required</span></td>
+        </tr>
+        <tr>
+        	<td class="label_col">Last Name:</td>
+        	<td class="input_col"><input name="lastName" id="lastName" type="text" onblur="validateLastName();" placeholder="Saeed"/> </td>
+            <td class="feedback_col"><span id="lastNamePrompt">Required</span></td>
+        </tr>
+         <tr>
+        	<td class="label_col">Phone Number:</td>
+        	<td class="input_col"><input name="phone" id="phone" type="text" onblur="validatePhoneNumber();" placeholder="xxxx-xxxxxxx"/> </td>
+            <td class="feedback_col"><span id="phonePrompt">xxxx-xxxxxxx</span></td>
+        </tr>
+		
+		<tr>
+			<td class="label_col">CNIC Number:</td>
+        	<td class="input_col"><input name="cnic" id="cnic" type="text" onblur="validateCnicNumber();" placeholder="xxxxx-xxxxxxx-x"/> </td>
+            <td class="feedback_col"><span id="cnicPrompt">xxxxx-xxxxxxx-x</span></td>
+        </tr>
+		
+        <tr>
+        	<td class="label_col">E-Mail Adress:</td>
+        	<td class="input_col"><input name="email" id="email" type="text" onblur="validateEmail();" placeholder="abcd@gmail.com"/> </td>
+            <td class="feedback_col"><span id="emailPrompt">Required</span></td>
+        </tr>
+       <!-- <tr>
+        	<td class="label_col">Item Price:</td>
+        	<td class="input_col"><input name="itemPrice" id="itemPrice" type="text" value="1000000.00" readonly> </td>
+            <td class="feedback_col"><span id="price">PKR</span></td>
+        </tr> -->
+        <tr>
+			<td></td>
+            <td class="button" id="button" ></td>
+			<td></td>
+        </tr>
+    
+    </table>
+		
+		
+		<div class="newthings">
+		
+		<h3>Now Click on the product you want yo buy!</h3>
+			<div class="clicks">
+			<input type="radio" name="Car" value="Toyota Avalon">Toyota Avalon<br/>
+			<input type="radio" name="Car" value="Toyota Camry">Toyota Camry<br/>
+			<input type="radio" name="Car" value="Toyota Corolla">Toyota Corolla<br/>
+			<input type="radio" name="Car" value="Toyota Prius">Toyota Prius<br/>
+			<input type="radio" name="Car" value="Toyota Yaris">Toyota Yaris<br/>
+			<input type="radio" name="Car" value="Toyota 86">Toyota 86<br/>
+			<input type="radio" name="Car" value="Toyota Sienna">Toyota Sienna<br/>
+			<input type="radio" name="Car" value="Toyota C-HR">Toyota C-HR<br/>
+			</div>
+		<h3>Now, select the engine type you want!</h3>
+			<div class="clicks">
+			<input type="radio" name="Engine" value="1300cc">1300cc<br/>
+			<input type="radio" name="Engine" value="1600cc">1600cc<br/>
+			<input type="radio" name="Engine" value="2300cc">2300cc<br/>
+			<input type="radio" name="Engine" value="2800cc">2800cc<br/>
+			</div>
+		<h3>Check any additional features you want!</h3>
+			<div class="clicks">
+			<input type="checkbox" name="Feature" value="Anti-lock brakes">Anti-lock brakes<br/>
+			<input type="checkbox" name="Feature" value="Sun Roof">Sun Roof<br/>
+			<input type="checkbox" name="Feature" value="LaneWatch">LaneWatch<br/>
+			<input type="checkbox" name="Feature" value="7-inch full LCD">7-inch full LCD<br/>
+			<input type="checkbox" name="Feature" value="Power Windows Front">Power Windows Front<br/>
+			<input type="checkbox" name="Feature" value="Alloy Wheels">Alloy Wheels<br/>
+			<input type="checkbox" name="Feature" value="Automatic Transmition">Automatic Transmition<br/> 
+			</div>
+		<h3>Reservation Date/Time!</h3>
+		<div class="clicks">
+			<input type="datetime-local" name="pickup_time" required="">
+		</div>
+		<h3>Reservation Location!</h3>
+		<div class="clicks">
+			<select id="Reservation_place" name="Reservation_place">
+                <option value="" selected="selected">Select One</option>
+                <option value="Islamabad">Islamabad</option>
+                <option value="Lahore">Lahore</option>
+                <option value="Karachi">Karachi</option>
+            </select>
+		</div>	
+		<h3>Pickup Location!</h3>
+		<div class="clicks">
+			<select id="Reservation_place" name="Reservation_place" >
+                <option value="" selected="selected">Select One</option>
+                <option value="Islamabad">Islamabad</option>
+                <option value="Lahore">Lahore</option>
+                <option value="Karachi">Karachi</option>
+            </select>
+		</div>	
+		<h3>Special Instructions!</h3>
+		<div class="clicks">
+			<textarea name="comments" maxlength="500" style="margin: 0px 3px 0px 0px; height: 82px; width: 254px;"></textarea>
+		</div>
+		</div>
+		<div class="button12">
+		<button type="button" class="buttonBG" onclick="calcOrder();">Review Order Summary</button>
+		<span id="orderConfirm"></span>
+		<br> 
+       <span id="result" style="color:brown"></span> 
+		
+		<br>
+		
+			<button type="Submit" value="Submit">Submit Booking</button>
+		
+      
+		</div>
+		</div>
+		</div>
+</form>
+
+
+</body>
+</html>
